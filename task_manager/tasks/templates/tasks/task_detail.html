@@ -1,0 +1,14 @@
+<!-- tasks/templates/tasks/task_detail.html -->
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+  <h2>{{ task.title }}</h2>
+  <p class="lead">Description: {{ task.description }}</p>
+  <p class="lead">Due Date: {{ task.due_date }}</p>
+  <p class="lead">Status: {% if task.completed %}Completed{% else %}Incomplete{% endif %}</p>
+  <div class="btn-group">
+    <a href="{% url 'task_update' pk=task.id %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'task_delete' pk=task.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'task_list' %}" class="btn btn-secondary">Back to Task List</a>
+  </div>
+{% endblock %}

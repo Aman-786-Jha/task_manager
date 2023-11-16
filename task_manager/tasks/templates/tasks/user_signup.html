@@ -1,0 +1,20 @@
+<!-- tasks/templates/tasks/user_signup.html -->
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Signup</h2>
+          <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Signup</button>
+          </form>
+          <p class="mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
